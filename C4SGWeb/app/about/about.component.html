@@ -1,4 +1,24 @@
-<div align="center">
-	<h3>About Us</h3>
-</div>
-<br>
+
+<!DOCTYPE html>
+<html>
+  <head>
+     <script src="about.component.js" type="text/javascript"></script> 
+    <style>
+      #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+    <title>About us</title>
+  </head>
+  <body>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBsjDXHROruvARFMxUJB41nf3XgJT2S0I&callback=initMap">
+    </script>
+    <h3>Our Office Location</h3>
+    <div id="map"></div>
+     <script type="text/javascript">
+       initMap();
+    </script>
+     </body>
+</html>
