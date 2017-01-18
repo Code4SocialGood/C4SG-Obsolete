@@ -10,7 +10,6 @@ CREATE TABLE `application` (
   `status` char(1) NOT NULL,
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `match_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `delete_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
 );
 
@@ -45,8 +44,6 @@ CREATE TABLE `organization` (
   `create_by` int(11) DEFAULT '0',
   `change_time` timestamp NULL DEFAULT NULL,
   `change_by` int(11) DEFAULT NULL,
-  `delete_time` timestamp NULL DEFAULT NULL,
-  `delete_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
 
@@ -72,8 +69,6 @@ CREATE TABLE `project` (
   `create_by` int(11) DEFAULT '0',
   `change_time` timestamp NULL DEFAULT NULL,
   `change_by` int(11) DEFAULT NULL,
-  `delete_time` timestamp NULL DEFAULT NULL,
-  `delete_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
 
@@ -97,7 +92,6 @@ CREATE TABLE `user` (
   `status` char(1) NOT NULL,
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `change_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `delete_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
 );
 
@@ -109,6 +103,8 @@ CREATE TABLE `user_organization` (
   `organization_id` int(11) NOT NULL,
   `status` char(1) NOT NULL,
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `delete_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
 );
+
+
+
