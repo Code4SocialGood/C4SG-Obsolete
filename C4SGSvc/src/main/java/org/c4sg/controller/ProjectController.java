@@ -10,6 +10,8 @@ import javax.validation.Valid;
 import org.c4sg.dto.ProjectDto;
 import org.c4sg.entity.Project;
 import org.c4sg.service.ProjectService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,12 +26,13 @@ public class ProjectController {
 
     @Autowired
     private ProjectService projectService;
-
+    
+    Logger logger = LoggerFactory.getLogger(this.getClass());
+    
     @CrossOrigin
     @RequestMapping(value = "/api/project/all", method = RequestMethod.GET)
     public List<ProjectDto> getProjects() {
-    	
-    	System.out.println("**************All**************");
+        logger.info("Getting all projects");
         return projectService.findProjects();
     }
     
@@ -37,7 +40,7 @@ public class ProjectController {
     @RequestMapping(value = "/api/project/search/byId/{id}", method = RequestMethod.GET)
     public Project getProject(@PathVariable("id") int id) {
     	
-    	System.out.println("**************ID**************" + id);
+    	logger.info("Getting project with project id {}",id);
         //return projectService.findProjects().get(id);
     	return projectService.findById(id);
     }
@@ -45,7 +48,7 @@ public class ProjectController {
     @CrossOrigin
     @RequestMapping(value = "/api/project/search/byName/{name}", method = RequestMethod.GET)
     public Project getProject(@PathVariable("name") String name) {
-    	
+    	logger.info("Getting project with name {}", name);
         return projectService.findByName(name);
     }
     
@@ -53,7 +56,7 @@ public class ProjectController {
     @RequestMapping(value = "/api/project/search/byKeyword/{keyWord}", method = RequestMethod.GET)
     public List<Project> getProjects(@PathVariable("keyWord") String keyWord) {
     	
-    	System.out.println("**************Search**************" + keyWord);
+    	logger.info("Getting projects containing keyword {}", keyWord);
     	
     	List<Project> projects = null;
     	
@@ -74,8 +77,7 @@ public class ProjectController {
     @RequestMapping(value = "/api/project/add", method = RequestMethod.POST)
     public Map<String, Object> createProject(@RequestBody @Valid Project project) {
 
-    	System.out.println("**************Add**************");
-    	
+    	logger.info("Creating project with name {} and description {}", project.getName(), project.getDescription());
     	Map<String, Object> responseData = null;
     	
         try {
@@ -93,8 +95,7 @@ public class ProjectController {
     @RequestMapping(value = "/api/project/delete/{id}", method = RequestMethod.DELETE)
     public void deleteProject(@PathVariable("id") int id) {
 
-    	System.out.println("************** Delete : id=" + id + "**************");
-    	
+    	logger.info("Deleting project with id {}", id);
         try {
             projectService.deleteProject(id);
         } catch (Exception e) {
@@ -107,7 +108,7 @@ public class ProjectController {
     public Map<String, Object> updateProject(@RequestBody @Valid Project project) {
 
     	System.out.println("**************Update : id=" + project.getId() + "**************");
-    	
+    	logger.info("Updating project with id {} and name {}", project.getId(), project.getName());
     	Map<String, Object> responseData = null;
     	
         try {
