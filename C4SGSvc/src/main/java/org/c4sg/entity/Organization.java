@@ -47,12 +47,6 @@ public class Organization {
 	@Column(name = "status", nullable = false)
 	private String status;
 	
-	@Column(name = "deleteTime")
-	private String deleteTime;
-	
-	@Column(name = "deleteBy")
-	private String deleteBy;
-	
 	public Long getId() {
 		return id;
 	}
@@ -125,16 +119,8 @@ public class Organization {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public String getDeleteTime() {
-		return deleteTime;
-	}
-	public void setDeleteTime(String deleteTime) {
-		this.deleteTime = deleteTime;
-	}
-	public String getDeleteBy() {
-		return deleteBy;
-	}
-	public void setDeleteBy(String deleteBy) {
-		this.deleteBy = deleteBy;
-	}
+
+
+	
+	
 }
