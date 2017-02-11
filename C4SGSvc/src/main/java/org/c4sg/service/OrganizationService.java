@@ -12,7 +12,7 @@ public interface OrganizationService {
     
     public OrganizationDto findById(int id);
     
-    public List<OrganizationDto> findByKeyword(String name);
+    public List<Object> findByKeyword(String name);
     
     public OrganizationDto createOrganization(OrganizationDto organizationDto);
     

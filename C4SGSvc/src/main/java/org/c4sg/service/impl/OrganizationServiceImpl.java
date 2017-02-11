@@ -36,12 +36,12 @@ public class OrganizationServiceImpl implements OrganizationService {
         return organizationMapper.getOrganizationDtoFromEntity(organizationDao.findById(id));
     }
 
-    public List<OrganizationDto> findByKeyword(String keyWord) {
+    public List<Object> findByKeyword(String keyWord) {
     	List<Organization> organizations = organizationDao.findByNameLikeOrBriefDescriptionLikeOrDetailedDescriptionLikeAllIgnoreCase(keyWord, keyWord, keyWord);
     	if(organizations == null || organizations.isEmpty()){
     		return null;
     	}
-    	List<OrganizationDto> organizationDtos = organizations.stream()
+    	List<Object> organizationDtos = organizations.stream()
     			.map(o -> organizationMapper.getOrganizationDtoFromEntity(o)).collect(Collectors.toList());
     	return organizationDtos;
     }

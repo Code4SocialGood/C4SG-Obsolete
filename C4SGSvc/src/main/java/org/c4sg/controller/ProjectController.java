@@ -72,11 +72,11 @@ public class ProjectController {
     
     @CrossOrigin
     @RequestMapping(value = "/api/project/add", method = RequestMethod.POST)
-    public Map<String, Object> createProject(@RequestBody @Valid Project project) {
+    public Map<Object, Object> createProject(@RequestBody @Valid Project project) {
 
     	System.out.println("**************Add**************");
     	
-    	Map<String, Object> responseData = null;
+    	Map<Object, Object> responseData = null;
     	
         try {
             Project createProject = projectService.createProject(project);
@@ -104,11 +104,11 @@ public class ProjectController {
 
     @CrossOrigin
     @RequestMapping(value = "/api/project/update", method = RequestMethod.PUT)
-    public Map<String, Object> updateProject(@RequestBody @Valid Project project) {
+    public Map<Object, Object> updateProject(@RequestBody @Valid Project project) {
 
     	System.out.println("**************Update : id=" + project.getId() + "**************");
     	
-    	Map<String, Object> responseData = null;
+    	Map<Object, Object> responseData = null;
     	
         try {
             Project updateProject = projectService.updateProject(project);
