@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
 
-
 @Component({
   // moduleId: module.id,
   selector: 'my-account',

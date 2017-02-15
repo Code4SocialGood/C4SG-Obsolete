@@ -27,7 +27,9 @@ export class OrganizationProjectComponent implements OnInit {
       res => {
         this.projects = JSON.parse(JSON.parse(JSON.stringify(res))._body);
       },
-      error => console.log(error)
+      error => {
+        console.log(error);
+      }
     );
   }
 
@@ -38,7 +40,8 @@ export class OrganizationProjectComponent implements OnInit {
       return;
     }
 
-    let project = new Project(8, name, 'Organization', 'description', 'logo.png', 'city', 'USA', '55311', 'Teens Give');
+    let project = new Project(8, name, 'Organization', 'description', 'logo.png', 'city', 'USA',
+      '55311', 'Teens Give');
 
     this.projectService
       .add(project)
