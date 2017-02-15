@@ -33,7 +33,7 @@ export class OrganizationProjectComponent implements OnInit {
     );
   }
 
-  // TODO Don't provide the identity colume value
+  // TODO Don't provide the identity column value
   add(name: string): void {
     name = name.trim();
     if (!name) {

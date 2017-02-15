@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
 
-
 @Component({
-  //moduleId: module.id,
+  // moduleId: module.id,
   selector: 'my-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
@@ -18,6 +17,10 @@ export class ProfileComponent {
     resume: new FormControl('', Validators.required),
     skills: new FormControl('', Validators.required)
   });
+
+  updateProfile(event) {
+    console.log(event);
+  }
 
   constructor() { }
 

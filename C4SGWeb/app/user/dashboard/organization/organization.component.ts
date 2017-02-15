@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
 import { OrganizationService } from './organization.service';
 
-
 @Component({
-  //moduleId: module.id,
+  // moduleId: module.id,
   selector: 'my-organization',
   templateUrl: './organization.component.html',
   styleUrls: ['organization.component.css']
@@ -28,9 +26,9 @@ export class OrganizationComponent implements OnInit {
     zip: new FormControl('', Validators.required),
     shortDescription: new FormControl('', Validators.required),
     detailedDescription: new FormControl('', Validators.required)
-  })
+  });
 
-  constructor(public fb: FormBuilder, private organizationService: OrganizationService) { }
+  constructor(private organizationService: OrganizationService) { }
 
   updateOrganization(event) {
     const organizationData = this.myOrganization.value;
@@ -61,7 +59,7 @@ export class OrganizationComponent implements OnInit {
       }, (err) => {
         console.error('An error occurred', err); // for demo purposes only
       }
-    )
+    );
   }
 
 }
