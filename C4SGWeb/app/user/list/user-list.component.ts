@@ -26,7 +26,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     // jquery script below opens up the modal dialog for delete confirmation
-    $(document).ready(function(){
+    $(document).ready(() => {
       $('.modal').modal();
     });
   }
