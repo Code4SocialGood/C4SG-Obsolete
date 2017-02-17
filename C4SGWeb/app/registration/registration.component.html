@@ -1,9 +1,11 @@
-<div class="container">
-	<form [formGroup]="signUpForm" (ngSubmit)="doSignUp($event)">
-		<input formControlName="username" type="text" placeholder="Username">
-		<input formControlName="email" type="text" placeholder="Email Address">
-		<input formControlName="password" type="text" placeholder="Password">
-		<input formControlName="rpassword" type="text" placeholder="Repeat Password">
+<div class="container" ng-controller="recapCtrl as recap">
+	<form [formGroup]="signUpForm" (ngSubmit)="recap.doSignUp($event)">
+		<input formControlName="username" type="text" ng-model="recap.username" placeholder="Username">
+		<input formControlName="email" type="text" ng-model="recap.email" placeholder="Email Address">
+		<input formControlName="password" type="text" ng-model="recap.password" placeholder="Password">
+		<!--Recaptcha Widget--->
+		<div vc-recaptcha key="recap.publicKey"></div>
+		<input formControlName="rpassword" type="text" ng-model="recap.password" placeholder="Repeat Password">
 		<button type="submit">Sign Up</button>
 	</form>
 </div>
