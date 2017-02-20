@@ -33,6 +33,9 @@ public class Project {
 	@Column(name = "status", columnDefinition="char(1)",nullable = false)
 	private String status;
 
+	@Column(name = "contact_email", nullable = false)
+	private String email;
+
 	@ManyToOne
 	@JoinColumn(name = "organization_id", insertable = false, updatable = false)
 	private Organization organization;
@@ -93,4 +96,11 @@ public class Project {
 		this.organization = organization;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 }

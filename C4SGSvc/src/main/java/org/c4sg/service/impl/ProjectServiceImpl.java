@@ -27,10 +27,7 @@ public class ProjectServiceImpl implements ProjectService {
 
 	public List<ProjectDto> findProjects() {
 		List<Project> projects = projectDao.findAll();
-		List<ProjectDto> projectDtos = projects.stream()
-									.map(p -> projectMapper.getProjectDtoFromEntity(p))
-									.collect(Collectors.toList());
-		return projectDtos;
+		return projectMapper.getDtosFromEntities(projects);
 	}
 	
     public Project findById(int id) {
@@ -43,7 +40,6 @@ public class ProjectServiceImpl implements ProjectService {
     
     //TODO search by keyword
     public List<Project> findByKeyword(String keyWord) {
-        //return projectDao.findByKeyWord(keyWord);
     	List<Project> projects = new ArrayList<>();
     	projects.add(projectDao.findByName(keyWord));
     	return projects;
