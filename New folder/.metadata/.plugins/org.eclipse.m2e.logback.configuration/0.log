@@ -1,0 +1,27 @@
+2017-02-21 21:16:14,567 [Worker-18] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2017-02-21 21:16:19,061 [Worker-18] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: org.cs4g:C4SG:0.0.1-SNAPSHOT @ C:\Users\eesha.dabral\C4SG\C4SGSvc\pom.xml.
+2017-02-21 21:16:28,306 [Worker-18] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /C4SGSvc/src/main/java
+2017-02-21 21:16:28,307 [Worker-18] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /C4SGSvc/src/main/resources
+2017-02-21 21:16:28,351 [Worker-18] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /C4SGSvc/src/main/resources
+2017-02-21 21:16:28,383 [Worker-18] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /C4SGSvc/src/test/java
+2017-02-21 21:16:30,847 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-02-21 21:16:30,874 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-02-21 21:16:30,923 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2017-02-21 21:16:30,959 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-02-21 21:16:30,959 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\eesha.dabral\C4SG\C4SGSvc\src\test\resources
+2017-02-21 21:16:36,651 [Worker-18] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 22 sec
+2017-02-21 21:16:36,858 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-02-21 21:16:36,866 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-02-21 21:16:36,873 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2017-02-21 21:16:36,923 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-02-21 21:16:36,924 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\eesha.dabral\C4SG\C4SGSvc\src\test\resources
+2017-02-21 21:16:41,100 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-02-21 21:16:41,101 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-02-21 21:16:41,101 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-02-21 21:16:41,104 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-02-21 21:16:41,105 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\eesha.dabral\C4SG\C4SGSvc\src\test\resources
+2017-02-21 23:39:29,238 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-02-21 23:39:29,238 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-02-21 23:39:29,239 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-02-21 23:39:29,241 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-02-21 23:39:29,241 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\eesha.dabral\C4SG\C4SGSvc\src\test\resources
