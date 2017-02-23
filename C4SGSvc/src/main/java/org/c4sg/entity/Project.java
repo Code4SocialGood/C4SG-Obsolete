@@ -21,9 +21,6 @@ public class Project {
 	@Column(name = "name", nullable = false)
 	private String name;
 
-	@Column(name = "organization_id", nullable = false)
-	private Integer organizationId;
-
 	@Column(name = "image", nullable = false)
 	private String image;
 
@@ -39,14 +36,6 @@ public class Project {
 	@ManyToOne
 	@JoinColumn(name = "organization_id", insertable = false, updatable = false)
 	private Organization organization;
-
-	public Integer getOrganizationId() {
-		return organizationId;
-	}
-
-	public void setOrganizationId(Integer organizationId) {
-		this.organizationId = organizationId;
-	}
 
 	public String getImage() {
 		return IMAGE_DIRECTORY + image;

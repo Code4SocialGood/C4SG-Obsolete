@@ -2,8 +2,8 @@
 DROP TABLE IF EXISTS `user_project`;
 CREATE TABLE `user_project`(
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `project_id` int(45) NOT NULL,
+  `user_id` INT(11) NOT NULL,
+  `project_id` INT(11) NOT NULL,
   `status` char(1) DEFAULT 'A',
   PRIMARY KEY (`id`),
   KEY `fk_user` (`user_id`),
