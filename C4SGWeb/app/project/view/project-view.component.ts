@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { Project } from '../common/project';
 import { ProjectService } from '../common/project.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'view-project',
@@ -11,20 +12,30 @@ import { ProjectService } from '../common/project.service';
 })
 
 export class ProjectViewComponent implements OnInit {
-
+  projectForm = FormGroup;
   project: Project;
   params: Params;
+  locations: [
+    'Remote',
+    'Physical Address'
+  ];
 
   constructor(private projectService: ProjectService,
               private route: ActivatedRoute,
               private router: Router,
-              private location: Location) {
+              private location: Location,
+              @Inject(FormBuilder) fb: FormBuilder) {
+    // this.projectForm = fb.group({
+    //   projectName: ['', Validators.required],
+    //   organizationName: [''],
+    //   shortDescription: ['', Validators.required],
+    //   longDescription: ['', Validators.required],
+    // });
   }
 
   ngOnInit(): void {
 
     this.route.params.forEach((params: Params) => {
-
       let id = +params['id'] - 1;
 
       this.projectService.getProject(id).subscribe(
