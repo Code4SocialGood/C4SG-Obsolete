@@ -10,10 +10,7 @@
             <label for="userId">keyword</label>
         </td>
         <td>
-            <button (click)="getUsersByKeyword(userId.value); userId.value=''"
-                    class="btn waves-effect waves-light grey darken-3">
-                <i class="large material-icons grey darken-3">search</i>
-            </button>
+            <button (click)="getUsersByKeyword(userId.value); userId.value=''" class="btn waves-effect waves-light grey darken-3"><i class="large material-icons grey darken-3">search</i></button>
         </td>
     </div>
 </div>
@@ -111,7 +108,6 @@
         </div>
     </div>
 </div>
-
 <div class="container center">
     <!-- inserting pagination -->
     <!-- pager -->
@@ -133,15 +129,15 @@
         </li>
     </ul>
 </div>
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal modal-fixed-footer">
+<!-- Modal Structure -->
+<div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h5>CONFIRM USER DELETE</h5>
-      <hr>
-      <br>
-      <div class="col s12 center">
-          <p class="h3 valign col s12" *ngIf="selectedUser">{{selectedUser.userName}}</p>
-      </div>
+        <h5>CONFIRM USER DELETE</h5>
+        <hr>
+        <br>
+        <div class="col s12 center">
+            <p class="h3 valign col s12" *ngIf="selectedUser">{{selectedUser.userName}}</p>
+        </div>
     </div>
     <div class="modal-footer" *ngIf="selectedUser">
         <button (click) = "delete(selectedUser)" class="btn modal-action modal-close waves-effect waves-green btn-flat ">Yes</button>
