@@ -5,7 +5,6 @@ import { OrganizationService } from '../common/organization.service';
 import * as $ from 'jquery';
 import { PagerService } from '../../_services/pager.service';
 
-
 @Component({
   selector: 'my-organizations',
   templateUrl: 'organization-list.component.html',
@@ -27,6 +26,7 @@ export class OrganizationListComponent implements OnInit, AfterViewInit {
   pagedItems: any[];
 
   constructor(private organizationService: OrganizationService, private router: Router, private pagerService: PagerService) {
+
   }
 
   ngOnInit(): void {
@@ -40,7 +40,6 @@ export class OrganizationListComponent implements OnInit, AfterViewInit {
     });
   }
 
-
   getOrganizations() {
     this.organizationService.getOrganizations().subscribe(
       res => {
@@ -51,17 +50,16 @@ export class OrganizationListComponent implements OnInit, AfterViewInit {
   }
 
   setPage(page: number) {
-        if (page < 1 || page > this.pager.totalPages) {
-            return;
-        }
+      if (page < 1 || page > this.pager.totalPages) {
+          return;
+      }
 
-        // get pager object from service
-        this.pager = this.pagerService.getPager(this.organizations.length, page);
+    // get pager object from service
+    this.pager = this.pagerService.getPager(this.organizations.length, page);
 
-        // get current page of items
-        this.pagedItems = this.organizations.slice(this.pager.startIndex, this.pager.endIndex + 1);
+    // get current page of items
+    this.pagedItems = this.organizations.slice(this.pager.startIndex, this.pager.endIndex + 1);
     }
-
 
   getOrganizationsByKeyword(keyword: string) {
     keyword = keyword.trim();
@@ -100,7 +98,6 @@ export class OrganizationListComponent implements OnInit, AfterViewInit {
       this.selectedOrganization = null;
     }
   } */
-  
 
   // edit callback, TODO
   edit(organization: Organization): void {
