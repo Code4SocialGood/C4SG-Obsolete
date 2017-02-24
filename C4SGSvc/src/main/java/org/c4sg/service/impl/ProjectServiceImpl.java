@@ -27,7 +27,7 @@ public class ProjectServiceImpl implements ProjectService {
 
 	public List<ProjectDto> findProjects() {
 		List<Project> projects = projectDao.findAll();
-		List<ProjectDto> projectDtos = projects.stream()
+		List<ProjectDto> projectDtos = (List<ProjectDto>) projects.stream()
 									.map(p -> projectMapper.getProjectDtoFromEntity(p))
 									.collect(Collectors.toList());
 		return projectDtos;

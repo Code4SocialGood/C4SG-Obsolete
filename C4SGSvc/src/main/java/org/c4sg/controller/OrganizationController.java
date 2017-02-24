@@ -39,15 +39,15 @@ public class OrganizationController {
     
     @CrossOrigin
     @RequestMapping(value = "/api/organization/search/byKeyword/{keyWord}", produces = { "application/json" }, method = RequestMethod.GET)
-    public List<OrganizationDto> getOrganization(@PathVariable("keyWord") String keyWord) {
+    public List<Object> getOrganization(@PathVariable("keyWord") String keyWord) {
         return organizationService.findByKeyword(keyWord);
     }
     
     @CrossOrigin
     @RequestMapping(value="/api/organization/create", method = RequestMethod.POST)
-    public Map<String, Object> createOrganization(@RequestBody @Valid OrganizationDto organizationDto){
+    public Map<Object, Object> createOrganization(@RequestBody @Valid OrganizationDto organizationDto){
     	System.out.println("**************Create**************");
-    	Map<String, Object> responseData = null;
+    	Map<Object, Object> responseData = null;
     	try{
     		OrganizationDto createdOrganization = organizationService.createOrganization(organizationDto);
     		responseData = Collections.synchronizedMap(new HashMap<>());
@@ -60,9 +60,9 @@ public class OrganizationController {
     
     @CrossOrigin
     @RequestMapping(value="/api/organization/update/{id}", method = RequestMethod.PUT)
-    public Map<String, Object> updateOrganization(@PathVariable("id") int id, @RequestBody @Valid OrganizationDto organizationDto){
+    public Map<Object, Object> updateOrganization(@PathVariable("id") int id, @RequestBody @Valid OrganizationDto organizationDto){
     	System.out.println("**************Update : id=" + organizationDto.getId() + "**************");
-    	Map<String, Object> responseData = null;
+    	Map<Object, Object> responseData = null;
     	try{
     		OrganizationDto updatedOrganization = organizationService.updateOrganization(id, organizationDto);
     		responseData = Collections.synchronizedMap(new HashMap<>());
