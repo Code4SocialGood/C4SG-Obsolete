@@ -34,7 +34,7 @@ public class OrganizationController {
     @CrossOrigin
     @RequestMapping(value = "/api/organization/search/byId/{id}", produces = { "application/json" }, method = RequestMethod.GET)
     public OrganizationDto getOrganization(@PathVariable("id") int id) {
-        return organizationService.findOrganizations().get(id);
+        return organizationService.findById(id);
     }
     
     @CrossOrigin
