@@ -8,6 +8,63 @@
     padding: 0;
     width: 70em;
 }
+
+.organizations {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    width: 70em;
+}
+label.right-align.usrlabel  {
+    text-align: right;
+    font-size: .95em !important;
+    color: silver;
+
+}
+span.left-align.h3.text  {
+    text-align: right;
+    font-size: 1.011em !important;
+
+}
+.organizations span.name{
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    color: cornflowerblue;
+    margin: 0em;
+    padding: 0 0;
+    font-weight: bold;
+    border-radius: 4px;
+}
+.organizations ewan:hover {
+    color: #607D8B;
+    background-color: #DDD;
+    left: .1em;
+}
+.organizations li.selected:hover {
+    background-color: #BBD8DC !important;
+    color: white;
+}
+.organizations .text {
+    position: relative;
+    text-align: right;
+    top: -3px;
+}
+
+.organizations .colData {
+    position: relative;
+    text-align: right;
+    top: -3px;
+}
+.organizations .colLabel {
+    position: relative;
+    text-align: right;
+    top: -3px;
+}
+
+
+
+
 .organizations li {
     cursor: pointer;
     position: relative;

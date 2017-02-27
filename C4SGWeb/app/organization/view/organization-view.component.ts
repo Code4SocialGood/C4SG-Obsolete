@@ -1,7 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
+import 'rxjs/add/operator/switchMap';
 
+import { Organization } from '../common/organization';
 import { OrganizationService } from '../common/organization.service';
 
 @Component({
@@ -36,10 +38,11 @@ export class OrganizationViewComponent implements OnInit, OnDestroy {
   getOrganization(id: number): void {
     this.organizationService.getOrganization(id).subscribe(
       (res) => {
-        this.organization = res.json();
-      }, (err) => {
-        console.error('An error occurred', err); // for demo purposes only
-      }
+        //this.organization = res.json();
+        this.organization = JSON.parse(JSON.parse(JSON.stringify(res))._body);
+        console.log(this.organization);
+      }, 
+      error => console.log(error)
     );
   }
 
