@@ -8,6 +8,7 @@ declare var google: any;
 })
 export class AboutComponent implements OnInit {
   title = 'Our Office Location';
+  message= 'We the coders:';
 
   ngOnInit() {
     var destination = {lat: 41.779, lng: -88.207};
