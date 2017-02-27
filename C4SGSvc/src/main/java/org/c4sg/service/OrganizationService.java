@@ -2,21 +2,26 @@ package org.c4sg.service;
 
 import java.util.List;
 
-import org.c4sg.dto.OrganizationDto;
+import org.c4sg.dto.OrganizationDTO;
 
 public interface OrganizationService {
 
-	public void save(OrganizationDto organizationDto);
+    String UPLOAD_DIRECTORY = "logos";
+    String LOGO_FORMAT = ".jpg";
 
-    public List<OrganizationDto> findOrganizations();
+	public void save(OrganizationDTO organizationDTO);
+
+    public List<OrganizationDTO> findOrganizations();
     
-    public OrganizationDto findById(int id);
+    public OrganizationDTO findById(int id);
     
-    public List<OrganizationDto> findByKeyword(String name);
+    public List<OrganizationDTO> findByKeyword(String name);
     
-    public OrganizationDto createOrganization(OrganizationDto organizationDto);
+    public OrganizationDTO createOrganization(OrganizationDTO organizationDTO);
     
-    public OrganizationDto updateOrganization(int id, OrganizationDto organizationDto);
+    public OrganizationDTO updateOrganization(int id, OrganizationDTO organizationDTO);
     
     public void deleteOrganization(int id);
-}
+
+    public String getLogoUploadPath(String organizationName);
+    }
