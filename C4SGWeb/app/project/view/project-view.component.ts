@@ -3,7 +3,7 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { Project } from '../common/project';
 import { ProjectService } from '../common/project.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'view-project',
@@ -15,10 +15,22 @@ export class ProjectViewComponent implements OnInit {
   projectForm = FormGroup;
   project: Project;
   params: Params;
-  locations: [
+  locations = [
     'Remote',
     'Physical Address'
-  ];
+    ];
+  data = {
+    name: 'name',
+    org: 'org',
+    date: 'date',
+    description: 'description',
+    location: 'location',
+    address: 'address',
+    state: 'state',
+    city: 'city',
+    zip: 'zip',
+    country: 'country',
+  };
 
   constructor(private projectService: ProjectService,
               private route: ActivatedRoute,
