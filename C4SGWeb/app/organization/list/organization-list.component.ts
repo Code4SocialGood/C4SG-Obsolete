@@ -17,7 +17,7 @@ export class OrganizationListComponent implements OnInit, AfterViewInit {
   selectedOrganization: Organization;
 
   // array of all items to be paged
-  //organizations: any[];
+  // organizations: any[];
 
   // pager Object
   pager: any = {};
@@ -55,10 +55,10 @@ export class OrganizationListComponent implements OnInit, AfterViewInit {
       }
 
     // get pager object from service
-    this.pager = this.pagerService.getPager(this.organizations.length, page);
+      this.pager = this.pagerService.getPager(this.organizations.length, page);
 
     // get current page of items
-    this.pagedItems = this.organizations.slice(this.pager.startIndex, this.pager.endIndex + 1);
+      this.pagedItems = this.organizations.slice(this.pager.startIndex, this.pager.endIndex + 1);
     }
 
   getOrganizationsByKeyword(keyword: string) {
@@ -77,7 +77,7 @@ export class OrganizationListComponent implements OnInit, AfterViewInit {
   }
 
    // pre delete
-  confirmDelete(organization: Organization): void {
+   confirmDelete(organization: Organization): void {
     this.selectedOrganization = organization;
   }
 
