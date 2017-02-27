@@ -29,6 +29,7 @@ const routes: Routes = [
   {path: 'about', component: AboutComponent},
 
   {path: 'project/list', component: ProjectListComponent},
+  {path: 'project/view/', component: ProjectViewComponent},
   {path: 'project/view/:id', component: ProjectViewComponent},
   {path: 'project/create', component: ProjectCreateComponent},
 
