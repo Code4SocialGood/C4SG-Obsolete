@@ -27,3 +27,14 @@ button:disabled {
     color: #ccc;
     cursor: auto;
 }
+
+#photo {
+    text-align: center;
+}
+
+#photo img {
+    border-radius:10px;
+}
+
+#photo button {
+}

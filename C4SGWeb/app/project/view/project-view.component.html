@@ -1,5 +1,4 @@
 <!--
-
 <div *ngIf="project">
     <h4>{{project.name}}</h4>
     <div>{{project.description}}</div>
@@ -16,20 +15,60 @@
 
     <button (click)="update()">Save</button>
 </div>
-
-
 -->
 
-<h1>Project View Component</h1>
-<h1>Project View Component</h1>
-<h1>Project View Component</h1>
-<h1>Project View Component</h1>
-<h1>Project View Component</h1>
-<h1>Project View Component</h1>
-<h1>Project View Component</h1>
-<h1>Project View Component</h1>
-<h1>Project View Component</h1>
-<h1>Project View Component</h1>
-<h1>Project View Component</h1>
-<h1>Project View Component</h1>
-<h1>Project View Component</h1>
+<div class="row">
+    <div class="col s3" id="photo">
+        <!-- Sample image for project -->
+        <img src="sample.jpg" alt="Project Photo">
+        <button>Upload Photo</button>
+    </div>
+
+    <div class="col s5">
+        <label for="name">Project Name</label>
+        <p id="name">{{name}}</p>
+
+        <label for="org">Organization Name</label>
+        <p id="org">{{org}}</p>
+
+        <label for="date">Post Date</label>
+        <p id="date">{{date}}</p>
+
+        <label for="longDescription">Long Description</label>
+        <p id="longDescription">{{longDescription}}</p>
+    </div>
+
+    <div class="col s4">
+        <label for="location">Project Location</label>
+        <p id="location">{{location}}</p>
+
+        <label for="address">Address</label>
+        <p id="address">{{addressStreet}}</p>
+
+        <label for="state">State</label>
+        <p id="state">{{state}}</p>
+
+        <label for="city">City</label>
+        <p id="city">{{city}}</p>
+
+        <label for="zip">Zip Code</label>
+        <p id="zip">{{zipCode}}</p>
+
+        <label for="country">Country</label>
+        <p id="country">{{country}}</p>
+    </div>
+</div>
+
+<div class="row btns">
+    <div class="col s8"></div>
+    <div class="col s2">
+        <button class="btn waves-effect waves-light">
+            Cancel
+        </button>
+    </div>
+    <div class="col s2">
+        <button class="btn waves-effect waves-light">
+            Apply
+        </button>
+    </div>
+</div>
