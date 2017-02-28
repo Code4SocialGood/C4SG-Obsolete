@@ -35,14 +35,7 @@ export class ProjectViewComponent implements OnInit {
   constructor(private projectService: ProjectService,
               private route: ActivatedRoute,
               private router: Router,
-              private location: Location,
-              @Inject(FormBuilder) fb: FormBuilder) {
-    // this.projectForm = fb.group({
-    //   projectName: ['', Validators.required],
-    //   organizationName: [''],
-    //   shortDescription: ['', Validators.required],
-    //   longDescription: ['', Validators.required],
-    // });
+              private location: Location) {
   }
 
   ngOnInit(): void {
