@@ -1,29 +1,45 @@
 package org.c4sg.service.impl;
 
-import org.c4sg.constant.UserDisplay;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+import org.c4sg.constant.Status;
 import org.c4sg.constant.UserRole;
-import org.c4sg.dao.UserDao;
+import org.c4sg.dao.UserDAO;
+import org.c4sg.dto.UserDTO;
 import org.c4sg.entity.User;
+import org.c4sg.mapper.UserMapper;
 import org.c4sg.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
     @Autowired
-    private UserDao userDao;
+    private UserDAO userDAO;
 
+    @Autowired
+    private UserMapper userMapper;
 
     @Override
-    public List<User> findAll() {
-        return null;
+    public List<UserDTO> findAll() {
+        List<UserDTO> usersDto = new ArrayList<>();
+        userDAO.findAll().stream().forEach(user -> usersDto.add(userMapper.getUserDtoFromEntity(user)));
+        return usersDto;
+
     }
-
+    
     @Override
-    public User findById(int id) {
-        return userDao.findById(id);
+    public List<UserDTO> findActiveUsers() {
+        List<User> users = userDAO.findByStatusOrderByUserNameAsc(Status.ACTIVE);
+		List<UserDTO> userDTOS = users.stream()
+									.map(p -> userMapper.getUserDtoFromEntity(p))
+									.collect(Collectors.toList());
+		return userDTOS;
+    }
+    @Override
+    public UserDTO findById(int id) {
+        return userMapper.getUserDtoFromEntity(userDAO.findById(id));
     }
 
     @Override
@@ -33,6 +49,27 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public List<User> findDevelopers() {
-        return userDao.findByRoleAndDisplayFlagOrderByGithubDesc(UserRole.C4SG_DEVELOPER, UserDisplay.DISPLAY_USER);
+        return userDAO.findByRoleAndDisplayFlagOrderByGithubDesc(UserRole.C4SG_DEVELOPER, true);
+    }
+
+    @Override
+    public UserDTO saveUser(UserDTO userDTO) {
+        User user = userMapper.getUserEntityFromDto(userDTO);
+
+        return userMapper.getUserDtoFromEntity(userDAO.save(user));
+    }
+
+    @Override
+    public void deleteUser(Integer id) {
+        User user = userDAO.findById(id);
+        user.setStatus(Status.DELETED);
+
+        userDAO.save(user);
+    }
+
+    @Override
+    public List<UserDTO> getApplicants(Integer projectId) {
+        List<User> users = userDAO.findByUserProjectId(projectId);
+        return userMapper.getDtosFromEntities(users);
     }
 }

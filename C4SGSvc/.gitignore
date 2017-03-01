@@ -12,6 +12,7 @@ hs_err_pid*
 # Maven
 log/
 target/
+logs/
 !.mvn/wrapper/maven-wrapper.jar
 
 # Eclipse
@@ -21,9 +22,7 @@ target/
 
 # STS
 .apt_generated
-.classpath
 .factorypath
-.project
 .settings
 .springBeans
 
