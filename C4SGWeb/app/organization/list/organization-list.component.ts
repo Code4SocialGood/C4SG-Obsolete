@@ -25,8 +25,8 @@ export class OrganizationListComponent implements OnInit, AfterViewInit {
   // paged items
   pagedItems: any[];
 
-  constructor(private organizationService: OrganizationService,
-              private router: Router, private pagerService: PagerService) {
+  constructor(private organizationService: OrganizationService, private router: Router, private pagerService: PagerService) {
+
   }
 
   ngOnInit(): void {
@@ -50,16 +50,16 @@ export class OrganizationListComponent implements OnInit, AfterViewInit {
   }
 
   setPage(page: number) {
-    if (page < 1 || page > this.pager.totalPages) {
-        return;
-    }
+      if (page < 1 || page > this.pager.totalPages) {
+          return;
+      }
 
     // get pager object from service
-    this.pager = this.pagerService.getPager(this.organizations.length, page);
+      this.pager = this.pagerService.getPager(this.organizations.length, page);
 
     // get current page of items
-    this.pagedItems = this.organizations.slice(this.pager.startIndex, this.pager.endIndex + 1);
-  }
+      this.pagedItems = this.organizations.slice(this.pager.startIndex, this.pager.endIndex + 1);
+    }
 
   getOrganizationsByKeyword(keyword: string) {
     keyword = keyword.trim();
@@ -77,7 +77,7 @@ export class OrganizationListComponent implements OnInit, AfterViewInit {
   }
 
    // pre delete
-  confirmDelete(organization: Organization): void {
+   confirmDelete(organization: Organization): void {
     this.selectedOrganization = organization;
   }
 
@@ -87,7 +87,7 @@ export class OrganizationListComponent implements OnInit, AfterViewInit {
   }
 
    // delete callback
-  delete(organization: Organization): void { /*
+ /* delete(organization: Organization): void {
     this.organizationService.delete(organization.id).subscribe(
       error => console.log(error)
     );
@@ -96,8 +96,8 @@ export class OrganizationListComponent implements OnInit, AfterViewInit {
     this.pagedItems = this.pagedItems.filter(u => u !== organization);
     if (this.selectedOrganization === organization) {
       this.selectedOrganization = null;
-    } */
-  }
+    }
+  } */
 
   // edit callback, TODO
   edit(organization: Organization): void {
