@@ -23,3 +23,6 @@ dist/
 *.iws
 *.iml
 *.ipr
+
+# yarn
+yarn.lock
