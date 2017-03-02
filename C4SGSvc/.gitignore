@@ -40,3 +40,8 @@ dist/
 nbdist/
 .nb-gradle/
 /bin/
+
+classes
+build
+*.log
+*.iml
