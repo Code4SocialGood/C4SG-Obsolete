@@ -18,6 +18,7 @@ import { ViewProjectComponent }  from './project/view/view-project.component';
 import { SearchProjectComponent }  from './project/search/search-project.component';
 import { CreateProjectComponent }  from './project/create/create.component';
 import { ProjectService }  from './project/project.service';
+import { ListComponent } from './project/list';
 
 import { AboutComponent }  from './about/about.component';
 import { ContactComponent }  from './contact/contact.component';

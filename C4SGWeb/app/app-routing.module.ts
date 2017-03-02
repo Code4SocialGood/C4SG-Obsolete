@@ -6,6 +6,7 @@ import { OrganizationProjectComponent }  from './project/organization/organizati
 import { ViewProjectComponent }  from './project/view/view-project.component';
 import { SearchProjectComponent }  from './project/search/search-project.component';
 import { CreateProjectComponent }  from './project/create/create.component';
+import { List } from './project/list.component';
 
 import { AppComponent }  from './app.component';
 import { HomeComponent }  from './home/home.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
     { path: 'projects', component: OrganizationProjectComponent },
     { path: 'create_project', component: CreateProjectComponent },
     { path: 'view-project/:id', component: ViewProjectComponent },
+    { path: 'list', component: ListComponent},
 
     { path: 'volunteers', component: VolunteerProjectComponent },
     { path: 'nonprofits', component: OrganizationProjectComponent },
