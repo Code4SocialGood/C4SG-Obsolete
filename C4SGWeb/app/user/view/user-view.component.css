@@ -6,23 +6,60 @@
     margin: 0 0 2em 0;
     list-style-type: none;
     padding: 0;
-    width: 70em;
+    width: 50em;
+	height: 60px;
+	margin-bottom: 500px;
+	text-align: center;
 }
 .users .label .h3 {
     text-align: right;
     height: 30em !important;
 
 }
+
+td .left-align {
+	left-align: 20px;
+	
+}
+td .avatar {
+	background-color: #EEE;
+	height: 100px;
+	width: 100px;
+}
+
+.btn {
+	background-color: #EEE;
+	height: 35px;
+	width: 125px;
+	
+}
+.delete {
+	text-align: center;
+}
+
+
+.title {
+	background-color: #EEE;
+	width: 200px;
+	height: 75px;
+	text-align: center;
+	padding-top: 20px;
+	
+}
+
+
 .users li {
     cursor: pointer;
     position: relative;
     left: 0;
-    background-color: #EEE;
+    background-color: ;
     margin: .5em;
     padding: .3em 0;
     height: 15em;
     border-radius: 4px;
 }
+
+
 .users li:hover {
     color: #607D8B;
     background-color: #DDD;
@@ -67,5 +104,34 @@ button.delete, button.edit {
     margin-right: .8em;
     background-color: gray !important;
     color:white;
+}
+
+.time, .intro {
+	font-family: Arial;
+	font-size: 16px;
+}
+.desc {
+	background-color: #EEE;
+	width: 200px;
+	height: 120px;
+	text-align: center;
+	padding-top: 20px;
+}
+.title2 {
+	background-color: #EEE;
+	width: 150px;
+	height: 90px;
+	text-align: center;
+	padding-top: 10px;
+	
+}
+.skills {
+	background-color: #EEE;
+	width: 150px;
+	height: 130px;
+	text-align: center;
+	padding-top: 10px;
+	margin-top: 20px;
+	
 }
 
