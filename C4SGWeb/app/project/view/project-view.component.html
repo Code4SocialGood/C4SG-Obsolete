@@ -1,10 +1,9 @@
-<!--
 
-<div *ngIf="project">
+
+<!-- <div *ngIf="project">
     <h4>{{project.name}}</h4>
     <div>{{project.description}}</div>
-    <button (click)="goBack()">Back</button>
-    <br><br><br>
+	<button (click)="goBack()">Back</button><br><br><br>
 
     <h5>Nonprofit Project Owners: Update Project</h5>
     <div>
@@ -15,9 +14,43 @@
     </div>
 
     <button (click)="update()">Save</button>
+</div> -->
+
+<div *ngIf="project" class="container">
+    <div class="container valign-wrapper">
+        <tr item-width="100%" class="center-align">
+            <td>
+                <div class="row">
+                    <div class="col s3 valign">
+                    </div>    
+                    <div class="col s9 valign">
+                        <span class="left-align h4">{{project.name}} </span><br>
+                    </div>
+
+                    <div class="col s3 valign">                        
+                    </div>          
+                    <div class="col s9 valign">
+                       <span>{{project.description}}</span><br>
+                    </div>
+                <br>
+				    <div class="col s12 valign right-align" style="height:20px; padding-top: 10px;">
+                       <span><button class="btn delete right" (click)="confirmDelete(user)" data-target="modal1">DELETE</button></span>
+                       <button (click)="goBack()">Back</button>
+					   <br><br><br>
+                    </div>
+				
+                </div>
+            </td>
+        </tr>                    
+    </div>
 </div>
 
 
--->
 
-Project Detail Page
+
+
+
+
+
+
+

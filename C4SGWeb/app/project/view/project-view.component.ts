@@ -7,7 +7,8 @@ import { ProjectService } from '../common/project.service';
 @Component({
   selector: 'view-project',
   templateUrl: 'project-view.component.html',
-  styleUrls: ['project-view.component.css']
+  styleUrls: ['project-view.component.css'],
+  input : ['project']
 })
 
 export class ProjectViewComponent implements OnInit {
