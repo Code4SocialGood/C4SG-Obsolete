@@ -38,7 +38,7 @@ public class OrganizationServiceImpl implements OrganizationService {
     }
 
     public List<OrganizationDTO> findByKeyword(String keyWord) {
-    	List<Organization> organizations = organizationDAO.findByNameLikeOrBriefDescriptionLikeOrDetailedDescriptionLikeAllIgnoreCase(keyWord, keyWord, keyWord);
+    	List<Organization> organizations = organizationDAO.findByNameLikeOrDescriptionLikeAllIgnoreCase(keyWord, keyWord);
     	if(organizations == null || organizations.isEmpty()){
     		return null;
     	}
@@ -82,8 +82,8 @@ public class OrganizationServiceImpl implements OrganizationService {
     	}
     }
 
-    public String getLogoUploadPath(String organizationName) {
-        return UPLOAD_DIRECTORY + File.separator + organizationName + LOGO_FORMAT;
+    public String getLogoUploadPath(Integer organizationId) {
+        return UPLOAD_DIRECTORY + File.separator + organizationId + LOGO_FORMAT;
     }
 
 }

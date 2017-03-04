@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
 public class OrganizationDTO {
-	private Long id;
+	private Integer id;
 	
 	@NotNull
 	private String name;
@@ -13,10 +13,8 @@ public class OrganizationDTO {
 	private String logo;
 	
 	@NotNull
-	@Length(max = 200)
-	private String briefDescription;
-	
-	private String detailedDescription;
+	@Length(max = 500)
+	private String description;
 	
 	@NotNull
 	private String address1;
@@ -33,10 +31,10 @@ public class OrganizationDTO {
 	@NotNull
 	private String status;
 	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -51,17 +49,11 @@ public class OrganizationDTO {
 	public void setLogo(String logo) {
 		this.logo = logo;
 	}
-	public String getBriefDescription() {
-		return briefDescription;
+	public String getDescription() {
+		return description;
 	}
-	public void setBriefDescription(String briefDescription) {
-		this.briefDescription = briefDescription;
-	}
-	public String getDetailedDescription() {
-		return detailedDescription;
-	}
-	public void setDetailedDescription(String detailedDescription) {
-		this.detailedDescription = detailedDescription;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	public String getAddress1() {
 		return address1;
