@@ -1,3 +1,4 @@
+
 package org.c4sg.service;
 
 import org.c4sg.dto.UserDTO;
@@ -7,11 +8,6 @@ import java.util.List;
 
 public interface UserService {
 	
-	String AVARTAR_UPLOAD_DIRECTORY = "avartars";
-	String RESUME_UPLOAD_DIRECTORY = "resumes";
-    String AVARTAR_FORMAT = ".jpg";
-    String RESUME_FORMAT = ".jpg";
-    
     List<UserDTO> findAll();
 
     List<UserDTO> findActiveUsers();

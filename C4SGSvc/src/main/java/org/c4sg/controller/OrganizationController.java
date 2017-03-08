@@ -4,10 +4,13 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.apache.tomcat.util.codec.binary.Base64;
+import org.c4sg.constant.C4sgConstants;
 import org.c4sg.dto.OrganizationDTO;
 import org.c4sg.service.OrganizationService;
+import org.c4sg.util.FileUploadUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.io.*;
@@ -15,8 +18,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static org.c4sg.service.OrganizationService.UPLOAD_DIRECTORY;
 
 @CrossOrigin
 @RestController
@@ -26,6 +27,41 @@ public class OrganizationController {
 
     @Autowired
     private OrganizationService organizationService;
+    
+    //Determining if this approach is better that using base64
+    @RequestMapping(value = "/{organizationId}/uploadLogoAsFile", method = RequestMethod.POST)
+    @ApiOperation(value = "Add new upload Logo as Image File")
+    public String uploadLogo(@ApiParam(value = "Organization Id", required = true)
+                             @PathVariable Integer organizationId,
+                             @ApiParam(value = "Request Body", required = true)
+    						 @RequestPart("file") MultipartFile file) {
+    	FileOutputStream fos = null;
+        try {
+        	String contentType = file.getContentType();
+            if(!FileUploadUtil.isValidImageFile(contentType)) {
+            	return "Invalid Image file! Content Type :-"+contentType;
+            }
+        	byte[] imageByte = file.getBytes();
+            File directory = new File(C4sgConstants.LOGO_UPLOAD_DIRECTORY);
+            if (!directory.exists()) {
+                directory.mkdir();
+            }
+            File f = new File(organizationService.getLogoUploadPath(organizationId));
+            fos = new FileOutputStream(f);
+            fos.write(imageByte);
+            return "Success";
+        } catch (Exception e) {
+            return "Error saving logo for organization " + organizationId + " : " + e;
+        }finally {
+			try {
+				if(fos!= null) {
+					fos.close();
+				}
+			}catch (Exception e) {
+				return "Error closing Stream " + organizationId + " : " + e;
+			}
+		}
+    }
 
     @RequestMapping(value = "/{organizationId}/uploadLogo", method = RequestMethod.POST)
     @ApiOperation(value = "Add new upload Logo")
@@ -35,7 +71,7 @@ public class OrganizationController {
                              @RequestBody String logoFileContent) {
         try {
             byte[] imageByte = Base64.decodeBase64(logoFileContent);
-            File directory = new File(UPLOAD_DIRECTORY);
+            File directory = new File(C4sgConstants.LOGO_UPLOAD_DIRECTORY);
             if (!directory.exists()) {
                 directory.mkdir();
             }

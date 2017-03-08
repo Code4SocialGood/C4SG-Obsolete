@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
 import org.apache.tomcat.util.codec.binary.Base64;
+import org.c4sg.constant.C4sgConstants;
 import org.c4sg.dto.UserDTO;
 import org.c4sg.entity.User;
 import org.c4sg.service.UserService;
@@ -12,9 +13,6 @@ import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import static org.c4sg.service.UserService.AVARTAR_UPLOAD_DIRECTORY;
-import static org.c4sg.service.UserService.RESUME_UPLOAD_DIRECTORY;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -99,7 +97,7 @@ public class UserController {
     	FileOutputStream fos=null;
         try {
             byte[] imageByte = Base64.decodeBase64(avatarFileContent);
-            File directory = new File(AVARTAR_UPLOAD_DIRECTORY);
+            File directory = new File(C4sgConstants.AVARTAR_UPLOAD_DIRECTORY);
             if (!directory.exists()) {
                 directory.mkdir();
             }
@@ -127,7 +125,7 @@ public class UserController {
     	FileOutputStream fos=null;
         try {
             byte[] imageByte = Base64.decodeBase64(resumeFileContent);
-            File directory = new File(RESUME_UPLOAD_DIRECTORY);
+            File directory = new File(C4sgConstants.RESUME_UPLOAD_DIRECTORY);
             if (!directory.exists()) {
                 directory.mkdir();
             }
