@@ -11,6 +11,7 @@ import org.c4sg.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -90,4 +91,9 @@ public class UserServiceImpl implements UserService {
                 .map(p -> userMapper.getUserDtoFromEntity(p))
                 .collect(Collectors.toList());
     }
+
+	@Override
+	public String getAvatarUploadPath(Integer userId) {
+		return UPLOAD_DIRECTORY + File.separator + userId + AVATAR_FORMAT;
+	}
 }

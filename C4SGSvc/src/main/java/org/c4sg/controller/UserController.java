@@ -3,6 +3,8 @@ package org.c4sg.controller;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.c4sg.dto.UserDTO;
 import org.c4sg.entity.User;
 import org.c4sg.service.UserService;
@@ -10,6 +12,11 @@ import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import static org.c4sg.service.UserService.UPLOAD_DIRECTORY;
+
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
 
 @CrossOrigin
@@ -80,5 +87,33 @@ public class UserController {
                                 @RequestParam(required = false) String firstName,
                                 @RequestParam(required = false) String lastName) {
         return userService.search(userName, firstName, lastName);
+    }
+    
+    @RequestMapping(value = "/{userId}/uploadAvartar", method = RequestMethod.POST)
+    @ApiOperation(value = "Add new upload Avatar")
+    public String uploadLogo(@ApiParam(value = "user Id", required = true)
+                             @PathVariable Integer userId,
+                             @ApiParam(value = "Request Body", required = true)
+                             @RequestBody String avatarFileContent) {
+    	FileOutputStream fos=null;
+        try {
+            byte[] imageByte = Base64.decodeBase64(avatarFileContent);
+            File directory = new File(UPLOAD_DIRECTORY);
+            if (!directory.exists()) {
+                directory.mkdir();
+            }
+            File f = new File(userService.getAvatarUploadPath(userId));
+            fos = new FileOutputStream(f);
+            fos.write(imageByte);
+            return "Success";
+        } catch (Exception e) {
+            return "Error saving avatar for User " + userId + " : " + e;
+        }finally {
+			try {
+				fos.close();
+			}catch (Exception e) {
+				return "Error while closing Stream " + userId + " : " + e;
+			}
+		}
     }
 }
