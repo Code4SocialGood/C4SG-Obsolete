@@ -7,8 +7,10 @@ import java.util.List;
 
 public interface UserService {
 	
-	String UPLOAD_DIRECTORY = "avatars";
-    String AVATAR_FORMAT = ".jpg";
+	String AVARTAR_UPLOAD_DIRECTORY = "avartars";
+	String RESUME_UPLOAD_DIRECTORY = "resumes";
+    String AVARTAR_FORMAT = ".jpg";
+    String RESUME_FORMAT = ".jpg";
     
     List<UserDTO> findAll();
 
@@ -27,4 +29,6 @@ public interface UserService {
     List<UserDTO> getApplicants(Integer projectId);
     
     String getAvatarUploadPath(Integer userId);
+    
+    String getResumeUploadPath(Integer userId);
 }
