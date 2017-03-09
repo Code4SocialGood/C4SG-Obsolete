@@ -49,7 +49,7 @@ public class UserMapper extends ModelMapper {
 			userDTO.setLongitude(Double.toString(point.getX()));
 			userDTO.setLatitude(Double.toString(point.getY()));
 		}
-		userDTO.setDisplayFlag((user.getDisplayFlag() != null && user.getDisplayFlag().booleanValue()) ? "Y" : "N");
+		
 		return userDTO;
 	}
 	
@@ -69,7 +69,7 @@ public class UserMapper extends ModelMapper {
 			com.vividsolutions.jts.geom.Point point = gf.createPoint(coordinate);	
 			user.setLocation(point);			
 		}
-		user.setDisplayFlag(Boolean.valueOf(userDTO.getDisplayFlag()));
+	
 		return user;
 	}
 

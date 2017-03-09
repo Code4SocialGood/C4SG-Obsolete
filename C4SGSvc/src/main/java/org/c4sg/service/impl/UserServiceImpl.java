@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserDTO> findActiveUsers() {
-        List<User> users = userDAO.findByStatusOrderByUserNameAsc(Status.ACTIVE);
+        List<User> users = userDAO.findByStatusOrderByUserNameAsc("A");
         List<UserDTO> userDTOS = users.stream()
                 .map(p -> userMapper.getUserDtoFromEntity(p))
                 .collect(Collectors.toList());
@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findDevelopers() {
-        return userDAO.findByRoleAndDisplayFlagOrderByGithubDesc(UserRole.C4SG_DEVELOPER, true);
+        return userDAO.findByRoleAndPublishFlagOrderByGithubDesc("D", "Y");
     }
 
     @Override
@@ -63,8 +63,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(Integer id) {
         User user = userDAO.findById(id);
-        user.setStatus(Status.DELETED);
-
+        user.setStatus("D");
         userDAO.save(user);
     }
 

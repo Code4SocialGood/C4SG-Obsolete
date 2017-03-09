@@ -18,13 +18,22 @@ public interface UserDAO extends JpaRepository<User, Long>, JpaSpecificationExec
                                 "JOIN up.user u " +
                                 "JOIN up.project p " +
                                 "WHERE p.id = :projId";
+    
+    String FIND_BY_ROLE_PUBLISHFLAG_ORDERBYGITHUB = "SELECT u FROM User u " +           
+            "WHERE u.role = :role AND u.publishFlag = :publishFlag " + 
+            "ORDER BY u.github ASC";
+    
+    String FIND_BY_STATUS_ORDERBYUSERNAME = "SELECT u FROM User u " +           
+            "WHERE u.status = :status " + 
+            "ORDER BY u.userName ASC";
 
-    //temporary until create date is added
-    List<User> findByStatusOrderByUserNameAsc(Status status);
+    @Query(FIND_BY_STATUS_ORDERBYUSERNAME)
+    List<User> findByStatusOrderByUserNameAsc(@Param("status") String status);
 
     User findById(int id);
-
-    List<User> findByRoleAndDisplayFlagOrderByGithubDesc(UserRole role, Boolean display);
+    
+    @Query(FIND_BY_ROLE_PUBLISHFLAG_ORDERBYGITHUB)
+    List<User> findByRoleAndPublishFlagOrderByGithubDesc(@Param("role") String role, @Param("publishFlag") String publishFlag);
 
     @Query(FIND_BY_ID_QUERY)
     List<User> findByUserProjectId(@Param("projId") Integer projId);

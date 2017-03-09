@@ -46,16 +46,16 @@ public class PopulateUserTest {
 			userDTO.setId(i);
 			userDTO.setCountry("USA");
 			userDTO.setState("NY");
-			userDTO.setDisplayFlag("Y");
+			userDTO.setPublishFlag("Y");
 			userDTO.setEmail("email_" + i + "@gmail.com");
 			userDTO.setFirstName("User" + i);
-			userDTO.setGithub(Integer.valueOf(i));
+			userDTO.setGithub("github"+i);
 			userDTO.setLastName("LName" + i);
-//			userDTO.setLatitude("2.12345678");
-//			userDTO.setLongitude("1.12345678");
+			userDTO.setLatitude("2.12345678");
+			userDTO.setLongitude("1.12345678");
 			userDTO.setPhone("212-911-1010");
-			userDTO.setRole("VOLUNTEER");
-			userDTO.setStatus("ACTIVE");
+			userDTO.setRole("V");
+			userDTO.setStatus("Y");
 			userDTO.setUserName("Uname" + i);
 			userDTO.setZip("28205");
 			//add to list
