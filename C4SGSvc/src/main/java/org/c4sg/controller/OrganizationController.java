@@ -4,7 +4,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.apache.tomcat.util.codec.binary.Base64;
-import org.c4sg.constant.C4sgConstants;
+import org.c4sg.constant.ApplicationConstants;
 import org.c4sg.dto.OrganizationDTO;
 import org.c4sg.service.OrganizationService;
 import org.c4sg.util.FileUploadUtil;
@@ -42,7 +42,7 @@ public class OrganizationController {
             	return "Invalid Image file! Content Type :-"+contentType;
             }
         	byte[] imageByte = file.getBytes();
-            File directory = new File(C4sgConstants.LOGO_UPLOAD_DIRECTORY);
+            File directory = new File(ApplicationConstants.LOGO_UPLOAD_DIRECTORY);
             if (!directory.exists()) {
                 directory.mkdir();
             }
@@ -71,7 +71,7 @@ public class OrganizationController {
                              @RequestBody String logoFileContent) {
         try {
             byte[] imageByte = Base64.decodeBase64(logoFileContent);
-            File directory = new File(C4sgConstants.LOGO_UPLOAD_DIRECTORY);
+            File directory = new File(ApplicationConstants.LOGO_UPLOAD_DIRECTORY);
             if (!directory.exists()) {
                 directory.mkdir();
             }

@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
 import org.apache.tomcat.util.codec.binary.Base64;
-import org.c4sg.constant.C4sgConstants;
+import org.c4sg.constant.ApplicationConstants;
 import org.c4sg.dto.UserDTO;
 import org.c4sg.entity.User;
 import org.c4sg.service.UserService;
@@ -88,16 +88,16 @@ public class UserController {
         return userService.search(userName, firstName, lastName);
     }
     
-    @RequestMapping(value = "/{userId}/uploadAvartar", method = RequestMethod.POST)
+    @RequestMapping(value = "/{userId}/uploadAvatar", method = RequestMethod.POST)
     @ApiOperation(value = "Add new upload Avatar")
-    public String uploadAvartar(@ApiParam(value = "user Id", required = true)
+    public String uploadAvatar(@ApiParam(value = "user Id", required = true)
                              @PathVariable Integer userId,
                              @ApiParam(value = "Request Body", required = true)
                              @RequestBody String avatarFileContent) {
     	FileOutputStream fos=null;
         try {
             byte[] imageByte = Base64.decodeBase64(avatarFileContent);
-            File directory = new File(C4sgConstants.AVARTAR_UPLOAD_DIRECTORY);
+            File directory = new File(ApplicationConstants.AVATAR_UPLOAD_DIRECTORY);
             if (!directory.exists()) {
                 directory.mkdir();
             }
@@ -125,7 +125,7 @@ public class UserController {
     	FileOutputStream fos=null;
         try {
             byte[] imageByte = Base64.decodeBase64(resumeFileContent);
-            File directory = new File(C4sgConstants.RESUME_UPLOAD_DIRECTORY);
+            File directory = new File(ApplicationConstants.RESUME_UPLOAD_DIRECTORY);
             if (!directory.exists()) {
                 directory.mkdir();
             }
