@@ -6,6 +6,10 @@ import org.c4sg.entity.User;
 import java.util.List;
 
 public interface UserService {
+	
+	String UPLOAD_DIRECTORY = "avatars";
+    String AVATAR_FORMAT = ".jpg";
+    
     List<UserDTO> findAll();
 
     List<UserDTO> findActiveUsers();
@@ -21,4 +25,6 @@ public interface UserService {
     List<UserDTO> search(String userName, String firstName, String lastName);
 
     List<UserDTO> getApplicants(Integer projectId);
+    
+    String getAvatarUploadPath(Integer userId);
 }
