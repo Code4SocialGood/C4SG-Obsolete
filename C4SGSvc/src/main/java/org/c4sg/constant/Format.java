@@ -1,12 +1,12 @@
 package org.c4sg.constant;
 
-public enum Formats {
+public enum Format {
 
 	IMAGE("avatars"), RESUME("resumes");
 
 	private String value;
 
-	Formats(String value) {
+	Format(String value) {
 		this.value = value;
 	}
 
