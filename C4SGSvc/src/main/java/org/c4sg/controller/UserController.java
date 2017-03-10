@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
 import org.apache.tomcat.util.codec.binary.Base64;
-import org.c4sg.constant.ApplicationConstants;
+import org.c4sg.constant.Directory;
 import org.c4sg.dto.UserDTO;
 import org.c4sg.entity.User;
 import org.c4sg.service.UserService;
@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.List;
+import static org.c4sg.constant.Directory.AVATAR_UPLOAD;
+import static org.c4sg.constant.Directory.RESUME_UPLOAD;
 
 @CrossOrigin
 @RestController
@@ -88,59 +90,41 @@ public class UserController {
         return userService.search(userName, firstName, lastName);
     }
     
-    @RequestMapping(value = "/{userId}/uploadAvatar", method = RequestMethod.POST)
-    @ApiOperation(value = "Add new upload Avatar")
-    public String uploadAvatar(@ApiParam(value = "user Id", required = true)
-                             @PathVariable Integer userId,
-                             @ApiParam(value = "Request Body", required = true)
-                             @RequestBody String avatarFileContent) {
-    	FileOutputStream fos=null;
-        try {
-            byte[] imageByte = Base64.decodeBase64(avatarFileContent);
-            File directory = new File(ApplicationConstants.AVATAR_UPLOAD_DIRECTORY);
-            if (!directory.exists()) {
-                directory.mkdir();
-            }
-            File f = new File(userService.getAvatarUploadPath(userId));
-            fos = new FileOutputStream(f);
-            fos.write(imageByte);
-            return "Success";
-        } catch (Exception e) {
-            return "Error saving avatar for User " + userId + " : " + e;
-        }finally {
-			try {
-				fos.close();
-			}catch (Exception e) {
-				return "Error while closing Stream " + userId + " : " + e;
-			}
+	@RequestMapping(value = "/{id}/uploadAvatar", method = RequestMethod.POST)
+	@ApiOperation(value = "Add new upload Avatar")
+	public String uploadAvatar(@ApiParam(value = "user Id", required = true) @PathVariable("id") Integer id,
+			@ApiParam(value = "Request Body", required = true) @RequestBody String avatarFileContent) {
+
+		byte[] imageByte = Base64.decodeBase64(avatarFileContent);
+		File directory = new File(AVATAR_UPLOAD.getValue());
+		if (!directory.exists()) {
+			directory.mkdir();
 		}
-    }
+		File f = new File(userService.getAvatarUploadPath(id));
+		try (FileOutputStream fos = new FileOutputStream(f)) {
+			fos.write(imageByte);
+			return "Success";
+		} catch (Exception e) {
+			return "Error saving avatar for User " + id + " : " + e;
+		}
+	}
     
-    @RequestMapping(value = "/{userId}/uploadResume", method = RequestMethod.POST)
-    @ApiOperation(value = "Add new upload resume")
-    public String uploadResume(@ApiParam(value = "user Id", required = true)
-                             @PathVariable Integer userId,
-                             @ApiParam(value = "Request Body", required = true)
-                             @RequestBody String resumeFileContent) {
-    	FileOutputStream fos=null;
-        try {
-            byte[] imageByte = Base64.decodeBase64(resumeFileContent);
-            File directory = new File(ApplicationConstants.RESUME_UPLOAD_DIRECTORY);
-            if (!directory.exists()) {
-                directory.mkdir();
-            }
-            File f = new File(userService.getResumeUploadPath(userId));
-            fos = new FileOutputStream(f);
-            fos.write(imageByte);
-            return "Success";
-        } catch (Exception e) {
-            return "Error saving resume for User " + userId + " : " + e;
-        }finally {
-			try {
-				fos.close();
-			}catch (Exception e) {
-				return "Error while closing Stream " + userId + " : " + e;
-			}
+	@RequestMapping(value = "/{id}/uploadResume", method = RequestMethod.POST)
+	@ApiOperation(value = "Add new upload resume")
+	public String uploadResume(@ApiParam(value = "user Id", required = true) @PathVariable("id") Integer id,
+			@ApiParam(value = "Request Body", required = true) @RequestBody String resumeFileContent) {
+
+		byte[] imageByte = Base64.decodeBase64(resumeFileContent);
+		File directory = new File(RESUME_UPLOAD.getValue());
+		if (!directory.exists()) {
+			directory.mkdir();
 		}
-    }
+		File f = new File(userService.getResumeUploadPath(id));
+		try (FileOutputStream fos = new FileOutputStream(f)) {
+			fos.write(imageByte);
+			return "Success";
+		} catch (Exception e) {
+			return "Error saving resume for User " + id + " : " + e;
+		}
+	}
 }

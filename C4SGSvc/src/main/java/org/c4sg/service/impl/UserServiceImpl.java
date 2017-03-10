@@ -1,7 +1,10 @@
 package org.c4sg.service.impl;
 
-import org.c4sg.constant.ApplicationConstants;
 import org.c4sg.constant.Status;
+import static org.c4sg.constant.Directory.RESUME_UPLOAD;
+import static org.c4sg.constant.Directory.AVATAR_UPLOAD;
+import static org.c4sg.constant.Formats.RESUME;
+import static org.c4sg.constant.Formats.IMAGE;
 import org.c4sg.constant.UserRole;
 import org.c4sg.dao.UserDAO;
 import org.c4sg.dao.specification.UserSpecification;
@@ -95,11 +98,11 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public String getAvatarUploadPath(Integer userId) {
-		return ApplicationConstants.AVATAR_UPLOAD_DIRECTORY + File.separator + userId + ApplicationConstants.IMAGE_FORMAT;
+		return AVATAR_UPLOAD + File.separator + userId + IMAGE;
 	}
 
 	@Override
 	public String getResumeUploadPath(Integer userId) {
-		return ApplicationConstants.RESUME_UPLOAD_DIRECTORY + File.separator + userId + ApplicationConstants.RESUME_FORMAT;
+		return RESUME_UPLOAD + File.separator + userId + RESUME;
 	}
 }

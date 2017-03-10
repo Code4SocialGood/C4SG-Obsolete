@@ -164,13 +164,6 @@ public class ProjectServiceImpl implements ProjectService {
 			public int compare(UserProject o1, UserProject o2) {
 				int result = 0;
 				result = o1.getStatus().compareTo(o2.getStatus());
-				//TODO Requirement skipped for now
-				/*if(result == 0) {
-					// Descending order
-					return (o1.getCreatedDate().compareTo(o2.getCreatedDate()))*-1;
-				}*/
-				
-				// First "B" and then "A"
 				return result*-1;
 			}
 		};

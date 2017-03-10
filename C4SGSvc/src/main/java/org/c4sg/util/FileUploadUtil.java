@@ -16,9 +16,4 @@ public class FileUploadUtil {
 		return true;
 	}
 
-	//TODO once logo upload functionality is decided, will work on resume upload
-	/*public static boolean isValidResumeFile(String contentType) {
-		return false;
-	}*/
-
 }
