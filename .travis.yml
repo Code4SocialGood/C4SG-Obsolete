@@ -7,5 +7,6 @@ cache:
   directories:
     - "$HOME/.gradle/caches/"
     - "$HOME/.gradle/wrapper/"
-before_script: cd C4SGSvc
-script: gradle build -x test
+before_script: 
+  - cd C4SGSvc
+  - echo "USE mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
