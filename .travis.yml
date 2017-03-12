@@ -12,3 +12,4 @@ services:
 before_script: 
   - cd C4SGSvc
   - echo "USE mysql;\nUPDATE user SET password=PASSWORD('mysql') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
+  - mysql -e 'CREATE DATABASE c4sg;'
