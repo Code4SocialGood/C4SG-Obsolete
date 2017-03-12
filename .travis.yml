@@ -14,3 +14,7 @@ before_install:
   - echo "USE mysql;\nUPDATE user SET password=PASSWORD('mysql') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root  
 before_script: 
   - cd C4SGSvc
+deploy:
+  provider: heroku
+  api_key:
+    secure: "3fb4d4da3261c042ac718859bf16abc16438680d
