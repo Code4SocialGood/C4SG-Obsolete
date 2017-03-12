@@ -6,12 +6,12 @@
 
 .off-home {
   position: none;
-  background-color: rgba(0, 0, 0, 1);
+  background-color: #1f1b0d;
   box-shadow: none;
 }
 
 .right a{
-    font-family: "Courier New", Courier, monospace;
+    font-family: Century Gothic, sans-serif;;
     font-size: 1em;
     font-weight: 20;
 }
@@ -38,18 +38,46 @@
   margin: 1em auto;
 }
 
+hr {
+  margin-top: 6em;
+  margin-bottom: 2em;
+  border: 0;
+  height: 1px;
+  width: 70vw;
+  background: #eee;
+  background-image: linear-gradient(to right, #1f1b0d, #e0e0e0, #1f1b0d);
+}
+
 .page-footer{
   margin-top: 0;
-  background-color: #2f2324;
+  background-color: #1f1b0d;
 }
 
 .page-footer .row{
   margin-bottom: 0;
-  padding: 3em;
+  padding: 0;
+}
+
+.page-footer ul{
+  display: inline-block;
+  float: right;
+  margin-top: 0;
+}
+.page-footer li{
+  display: inline-block;
+  padding-left: 0.3em;
 }
 
 .page-footer a{
-  color: #ffffff;
-  float: left;
-  padding: 0.5em;
+  padding-right: 1em;
+  color: #9a9a9a;
+}
+
+.foot-left a{
+  margin: 0 auto;
+}
+
+.page-footer span{
+  font-family: Century Gothic, sans-serif;
+  font-size: 1.3em;
 }
