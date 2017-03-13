@@ -11,6 +11,7 @@
 }
 
 .right a{
+    color: #ddd;
     font-family: Century Gothic, sans-serif;;
     font-size: 1em;
     font-weight: 20;
@@ -40,7 +41,7 @@
 
 hr {
   margin-top: 6em;
-  margin-bottom: 2em;
+  margin-bottom: 0.5em;
   border: 0;
   height: 1px;
   width: 70vw;
